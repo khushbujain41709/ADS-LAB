@@ -69,4 +69,21 @@ int main(){
         cout<<"Key doesnot exist in the binary tree"<<endl;
     }
     return 0;
+    /*
+    Name : Khushbu Jain
+    Roll Number : 23115047
+    Performed on : 13th October 2025
+    Displaying binary tree :
+    1 2 4 5 3 6 7
+    Enter the key to find : 7
+    Key exists in the binary tree. It's path is given as : 1 3 7
+
+    Name : Khushbu Jain
+    Roll Number : 23115047
+    Performed on : 13th October 2025
+    Displaying binary tree :
+    1 2 4 5 3 6 7
+    Enter the key to find : 10
+    Key doesnot exist in the binary tree
+    */
 }

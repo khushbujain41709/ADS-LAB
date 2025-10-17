@@ -61,4 +61,16 @@ int main(){
     vector<int> branches;
     FindBranches(a, branches);
     return 0;
+    /*
+    Name : Khushbu Jain
+    Roll Number : 23115047
+    Performed on : 13th October 2025
+    Displaying binary tree :
+    1 2 4 5 3 6 7
+    Branches of the Binary Tree :
+    1 2 4
+    1 2 5
+    1 3 6
+    1 3 7
+    */
 }
