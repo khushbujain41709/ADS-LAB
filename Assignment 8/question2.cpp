@@ -1,7 +1,7 @@
 #include<iostream>
 #include<climits>
-#include<vector>
 using namespace std;
+// Level of Tree = 1 + max(levelOfTree(root->left) , levelOfTree(root->right))
 class Node{
     public :
     int value;
@@ -19,69 +19,31 @@ void display(Node* root){
     display(root->left);
     display(root->right);
 }
-Node* insert(Node* root, int val){
-    if(root == NULL){
-        return new Node(val);
-    }
-    if(val < root->value){
-        root->left = insert(root->left, val);
-    }
-    else{
-        root->right = insert(root->right, val);
-    }
-    return root;
-}
-void kthSmallest(Node* root, int& k, int& ans){
-    if(root == NULL || k <= 0){
-        return;
-    }
-    kthSmallest(root->left, k, ans);
-    k--;
-    if(k == 0){
-        ans = root->value;
-        return;
-    }
-    kthSmallest(root->right, k, ans);
-}
-
-void kthLargest(Node* root, int& k, int& ans){
-    if(root == NULL || k <= 0){
-        return;
-    }
-    kthLargest(root->right, k, ans);
-    k--;
-    if(k == 0){
-        ans = root->value;
-        return;
-    }
-    kthLargest(root->left, k, ans);
+int level(Node* root){
+    if(root == NULL) return 0;
+    return (1 + max(level(root->left) , level(root->right)));
 }
 int main(){
     cout<<"Name : Khushbu Jain"<<endl;
     cout<<"Roll Number : 23115047"<<endl;
     cout<<"Performed on : 3rd November 2025"<<endl;
-    int size = 0;
-    cout<<"Enter size of array : ";
-    cin>>size;
-    vector<int> v(size);
-    Node* root = NULL;
-    for(int i = 0; i<size; i++){
-        cin>>v[i];
-        root = insert(root, v[i]);
-    }
-    display(root);
-    cout<<endl;
+    Node* a = new Node(1);
+    Node* b = new Node(2);
+    Node* c = new Node(3);
+    Node* d = new Node(4);
+    Node* e = new Node(5);
+    Node* f = new Node(6);
+    Node* g = new Node(7);
 
-    int k = 3;
-    int small = 0;
-    int large = 0;
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->left = f;
+    c->right = g;
 
-    kthSmallest(root, k, small);
-    k = 3; // imp - reset value of k
-    kthLargest(root, k, large);
-
-    cout<<"Kth Smallest: "<<small<<endl;
-    cout<<"Kth Largest: "<<large<<endl;
+    display(a);
+    cout<<"Height of tree : "<<level(a) - 1<<endl;
     
     return 0;
 }
